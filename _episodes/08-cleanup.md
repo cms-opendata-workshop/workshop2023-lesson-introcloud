@@ -32,9 +32,9 @@ kubectl delete ns argo
 
 ## Stop your cluster
 
+Stopping your cluster will not delete anything.
 ```bash
 minikube stop
 ```
 
-
-Perfect you’re ready to start over
+Perfect! You’re ready to [start over](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/03-basics-kubectl/index.html).
