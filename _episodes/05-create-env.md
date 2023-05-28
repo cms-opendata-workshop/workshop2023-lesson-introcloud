@@ -113,15 +113,20 @@ spec:
 ```
 
 Submit and check this workflow with:
+
 ```bash
 argo submit -n argo argo-wf-volume.yaml
 argo list -n argo
 ```
+
 Take the name of the workflow from the output (replace XXXXX in the following command) and check the logs:
+
 ```bash
 kubectl logs pod/test-hostpath-XXXXX  -n argo main
 ```
+
 Once the job is done, you will see something like:
+
 ```output
 time="2022-07-25T05:51:14.221Z" level=info msg="capturing logs" argo=true
 ls -l /mnt/vol: total 4 -rw-rw-rw- 1 root root 18 Jul 25 05:51 test.txt
@@ -161,7 +166,9 @@ spec:
         requests:
           cpu: "1"
           memory: "512Mi"
+---
 ```
+
 Create the storage pod and copy the files from there with:
 ```bash
 kubectl apply -f pv-pod.yaml -n argo
@@ -169,5 +176,5 @@ kubectl cp task-pv-pod:/mnt/data /tmp/poddata -n argo
 ```
 and you will get the file created by the job in /tmp/poddata/test.txt.
 
-> Every time you want the files to get copied from your the pv-pod to your local computer you must run kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo.
+> Every time you want the files to get copied from your the pv-pod to your local computer you must run `kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo`.
 {:testimonial}
