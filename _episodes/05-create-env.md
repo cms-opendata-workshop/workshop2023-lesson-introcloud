@@ -136,7 +136,7 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 ```
 
 It has the following content:
-```yamls
+```yaml
 # pv-pod.yaml
 apiVersion: v1
 kind: Pod
