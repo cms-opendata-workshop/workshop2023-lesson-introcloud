@@ -37,7 +37,7 @@ Stoping your cluster will not delete anything.
 minikube stop
 ```
 <br/>
-###Perfect! You’re ready to [start over](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/03-basics-kubectl/index.html).
+### Perfect! You’re ready to [start over](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/03-basics-kubectl/index.html).
 
 ## Delete your cluster
 
