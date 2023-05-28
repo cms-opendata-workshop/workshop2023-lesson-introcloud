@@ -93,6 +93,7 @@ argo-server-76f9f55f44-9d6c5          1/1     Running     6 (5d14h ago)   23d
 httpbin-7d6678b4c5-vhk2k              1/1     Running     3 (5d14h ago)   23d
 minio-68dc5544c4-8jst4                1/1     Running     3 (5d14h ago)   23d
 postgres-6f9cb49458-sc5fx             1/1     Running     3 (5d14h ago)   23d
+workflow-controller-769bfc84b-ndgp7   1/1     Running     8 (13m ago)     23d
 ```
 
 To test the setup, run a simple test workflow with:
