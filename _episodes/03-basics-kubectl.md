@@ -8,13 +8,10 @@ questions:
 
 objectives:
 - "Learn what the kubectl command can do"
-- "Appreciate the necessity for the Argo workflows tool (or similar)"
 - "Learn how to set up different services/resources to get the most of your cluster"
 
 keypoints:
 - "`kubectl` is the ruler of GKE"
-- "Argo is a very useful tool for running workflows and parallel jobs"
-- "To be able to write, read and extract data, a few services/resources need to be set up on the GCP"
 ---
 
 ## K8s - Imperative vs Declarative programming
@@ -48,7 +45,7 @@ Let’s first create a node running Nginx by using the imperative way.
 kubectl run mynginx --image=nginx
 ```
 
-##### Get a list of running pods
+##### Get a list of pods and their status
 ```bash
 kubectl get pods
 ```
@@ -95,7 +92,7 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 > {: .language-yaml}
 {: .solution}
 
-Now, let's create a node using the YAML file
+Now, let’s create a pod using the YAML file
 ```bash
 kubectl create -f myapp.yaml
 ```
@@ -106,7 +103,7 @@ kubectl get pods -o wide
 kubectl describe pod myapp-pod
 ```
 
-Attach our terminal
+Open a shell in the running pod
 ```bash
 kubectl exec -it myapp-pod -- bash
 ```
@@ -116,12 +113,12 @@ Print the DBCON environment variable that was set in the YAML file.
 echo $DBCON
 ```
 
-Detach from the instance
+Exit from the container
 ```bash
 exit
 ```
 
-Cleanup
+Delete the pod
 ```bash
 kubectl delete -f myapp.yaml
 ```
@@ -130,12 +127,13 @@ The declarative approach is the recommended way to manage resources in Kubernete
 
 ## Let's run a few examples.
 
-#### Get namespaces:
-Get the currently configured namespaces
+[Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) partition resources in a cluster, creating isolated virtual clusters. They allow multiple teams or applications to coexist while maintaining separation and preventing conflicts. 
+#### Get the currently configured namespaces:
 ```bash
 kubectl get namespaces
 kubectl get ns
 ```
+Both commands are equivalent and will retrieve the list of namespaces in your Kubernetes cluster. 
 
 #### Get the pods list:
 Get a list of all the installed pods.
@@ -149,7 +147,7 @@ kubectl get pods -n kube-system
 ```
 
 #### Get nodes information:
-Get a list of all the installed nodes. Using Docker Desktop, there should be only one.
+Get a list of all the installed nodes. Using Docker Desktop or Minikube, there should be only one.
 ```bash
 kubectl get nodes
 ```
@@ -161,7 +159,7 @@ kubectl describe node
 
 ### Run your first deployment
 A Deployment is a higher-level resource that provides declarative updates and manages the deployment of Pods. It allows you to define the desired state of your application, including the number of replicas, container images, and resource requirements.
-<br\>
+<br/>
 Download the file:
 ```bash
 wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/files/kubectl/deploy-example.yaml
@@ -217,7 +215,7 @@ Get the pods list
 kubectl get pods -o wide
 ```    
 
-Describe the pod
+Get more details about the pod
 ```bash
 kubectl describe pod deploy-example
 ```
@@ -242,6 +240,7 @@ kubectl describe rs
 In summary, a Deployment provides a higher-level abstraction for managing and updating the desired state of Pods, while a ReplicaSet is a lower-level resource that ensures the specified number of Pod replicas are maintained. Deployments use ReplicaSets under the hood to achieve the desired state and handle scaling and rolling updates.
 
 #### Cleanup
+Delete the pod
 ```bash
 kubectl delete -f deploy-example.yaml
 ```
