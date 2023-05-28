@@ -36,7 +36,6 @@ Stoping your cluster will not delete anything.
 ```bash
 minikube stop
 ```
-<br/>
 ### Perfect! You’re ready to [start over](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/03-basics-kubectl/index.html).
 
 ## Delete your cluster
