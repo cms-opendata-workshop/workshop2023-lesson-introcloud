@@ -18,9 +18,7 @@ keypoints:
 
 ## Kubernetes Cluster - Storage Volume
 
-When running applications or workflows, it is often necessary to allocate disk space to store the resulting data. Kubernetes provides various options for managing storage volumes, allowing you to efficiently store and access data within your cluster.
-
-Local storage volumes are tied to the Minikube host machine and are not accessible outside of it. They are meant for local development and testing purposes. By leveraging local storage volumes with Minikube, you can conveniently create and utilize storage resources within your local Kubernetes cluster, enabling data persistence and local development capabilities.
+When running applications or workflows, it is often necessary to allocate disk space to store the resulting data. Kubernetes provides various options for managing storage volumes, allowing you to efficiently store and access data within your cluster. Local storage volumes are tied to the Minikube host machine and are not accessible outside of it since they are meant for local development and testing purposes. By leveraging local storage volumes with Minikube, you can conveniently create and utilize storage resources within your local Kubernetes cluster, enabling data persistence and local development capabilities.
 
 Let's create a persistent volume, retrieve the persistent volume configuration file with:
 ```bash
