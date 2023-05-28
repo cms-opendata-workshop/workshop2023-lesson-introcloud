@@ -38,7 +38,7 @@ While jobs can be run manually, utilizing a workflow engine like Argo simplifies
 
 Install it into your working environment with the following commands (all commands to be entered into your local shell):
 
-```yaml
+```bash
 kubectl create ns argo
 kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start-postgres.yaml
 ```
@@ -63,9 +63,10 @@ You can now check that argo is available with:
 ```bash
 argo version
 ```    
+
 ### Port-forward the UI
 
-Open a port-forward so you can access the UI:
+To open a port-forward so you can access the UI, open a new shell and run:
 
 ```bash
 kubectl -n argo port-forward deployment/argo-server 2746:2746
@@ -79,10 +80,21 @@ This will serve the UI on [https://localhost:2746](https://localhost:2746). Due 
 ## Install the Argo Workflows CLI
 
 Next, Download the latest Argo CLI from the same [releases page](https://github.com/argoproj/argo-workflows/releases/latest).
-
          
 ### Run a simple test workflow
-             
+Make sure that all argo pods are running before submitting the test workflow:
+```bash
+kubectl get pods -n argo
+```
+You must get a similar output:
+```output
+NAME                                  READY   STATUS      RESTARTS        AGE
+argo-server-76f9f55f44-9d6c5          1/1     Running     6 (5d14h ago)   23d
+httpbin-7d6678b4c5-vhk2k              1/1     Running     3 (5d14h ago)   23d
+minio-68dc5544c4-8jst4                1/1     Running     3 (5d14h ago)   23d
+postgres-6f9cb49458-sc5fx             1/1     Running     3 (5d14h ago)   23d
+```
+
 To test the setup, run a simple test workflow with:
 ```bash
 argo submit -n argo https://raw.githubusercontent.com/argoproj/argo/master/examples/hello-world.yaml
