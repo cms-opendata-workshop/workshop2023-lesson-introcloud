@@ -31,7 +31,9 @@ Where:
 * **TYPE:** Indicates the type of Kubernetes resource you want to interact with. It can be a single resource type like `Pod, Deployment, Service`, or a more general term like `all`, `nodes`, `namespaces`, etc.
 * **NAME:** Specifies the name of the specific resource you want to operate on.
 * **flags:** These are optional flags that modify the behavior of the command. Flags can be used to specify additional parameters, control output formats, apply labels, set resource limits, etc. Flags are specific to each command and can be listed by running `kubectl [command] --help`.
-> Do not forget to go through the [setup](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/setup.html) episode to get your environment up and running...
+
+
+> Do not forget to go through the [setup](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/setup.html) episode to get your environment up and running.
 > Also, check out the kubectl [cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 {: .testimonial}
 
