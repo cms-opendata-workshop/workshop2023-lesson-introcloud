@@ -61,6 +61,21 @@ kubectl run mynginx --image=nginx
 ```bash
 kubectl get pods
 ```
+> ## Output
+> The status of the pod is "ContainerCreating," which means that Kubernetes is currently in the process of creating the container for the pod. The "0/1" under the "READY" column indicates that the pod has not yet reached a ready state. 
+> ~~~
+> NAME      READY   STATUS              RESTARTS   AGE
+> mynginx   0/1     ContainerCreating   0          5s
+> ~~~
+> {: .language-output}
+> 
+> Once the pod is successfully created and the container is running, the status will change to "Running" or a similar value, and the "READY" column will reflect that the pod is ready.
+> ~~~
+> NAME      READY   STATUS              RESTARTS   AGE
+> mynginx   1/1     Running             0          70s
+> ~~~
+> {: .language-output}
+{: .solution}
 
 ##### Get more info
 ```bash
