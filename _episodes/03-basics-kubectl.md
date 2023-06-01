@@ -20,7 +20,7 @@ In the context of Kubernetes, imperative and declarative are two different parad
 <img src="https://ucarecdn.com/024d46aa-b898-4713-b3a7-2c095c94b00e/" width="400">
 
 ### Kubectl
-The kubectl command-line tool is a powerful utility provided by Kubernetes that allows you to interact with and manage Kubernetes clusters. Use the following syntax to run kubectl commands from your terminal window:
+The [kubectl](https://kubernetes.io/docs/tasks/tools/) command-line tool is a powerful utility provided by Kubernetes that allows you to interact with and manage Kubernetes clusters. Use the following syntax to run kubectl commands from your terminal window:
 
 ```bash
 kubectl [command] [TYPE] [NAME] [flags]
@@ -31,9 +31,19 @@ Where:
 * **TYPE:** Indicates the type of Kubernetes resource you want to interact with. It can be a single resource type like `Pod, Deployment, Service`, or a more general term like `all`, `nodes`, `namespaces`, etc.
 * **NAME:** Specifies the name of the specific resource you want to operate on.
 * **flags:** These are optional flags that modify the behavior of the command. Flags can be used to specify additional parameters, control output formats, apply labels, set resource limits, etc. Flags are specific to each command and can be listed by running `kubectl [command] --help`.
-
-> Check out the kubectl [cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
+> Do not forget to go through the [setup](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/setup.html) episode to get your environment up and running...
+> Also, check out the kubectl [cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 {: .testimonial}
+
+> ## Minikube - Start your cluster
+> 
+> From a terminal with administrator access (but not logged in as root), run:
+> ```bash
+> minikube start
+> ```
+> If [minikube](https://minikube.sigs.k8s.io/docs/start/) fails to start, see the [drivers page](https://minikube.sigs.k8s.io/docs/drivers/) for help setting up a compatible container or virtual-machine manager.
+{: .testimonial}
+
 
 ### Imperative Approach
 In the imperative approach, you specify the exact sequence of commands or actions to be performed to create or modify Kubernetes resources. You interact with the Kubernetes API by issuing explicit instructions.
