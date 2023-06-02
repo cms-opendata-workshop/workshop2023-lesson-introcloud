@@ -102,7 +102,7 @@ argo logs -n argo @latest
 > NAME                STATUS      AGE   DURATION   PRIORITY   MESSAGE
 > hello-world-mjgvb   Succeeded   2m    32s        0
 > ~~~
-> {. :language-output}
+> {: .language-output}
 {: .solution}
               
 If argo was installed correctly you will have the following:
