@@ -189,8 +189,7 @@ Open the Argo Server tab and navigate to the workflow, you should see two contai
 > > ~~~
 > > {: .language-output}   
 > > And the workflow you should see in Argo GUI is:
-> > ![DAG-diagram](../fig/argo-dag-diagram.png)
-> > <img src="../fig/argo-dag-diagram.png" alt="DAG-diagram1" width="600" />
+> > <img src="../fig/argo-dag-diagram.png" alt="DAG-diagram1" width="880" />
 > > {: .centered}
 > {: .solution}
 {: .challenge}
