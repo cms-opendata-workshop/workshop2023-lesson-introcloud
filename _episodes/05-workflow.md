@@ -203,27 +203,30 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 ```
 
 See the content:
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Workflow
-metadata:
-  generateName: input-parameters-
-spec:
-  entrypoint: main
-  arguments:
-    parameters:
-      - name: message
-        value: hello world
-  templates:
-    - name: main
-      inputs:
-        parameters:
-          - name: message
-      container:
-        image: docker/whalesay
-        command: [ cowsay ]
-        args: [ "{{inputs.parameters.message}}" ]
-```
+> ## Yaml file
+> ~~~
+> apiVersion: argoproj.io/v1alpha1
+> kind: Workflow
+> metadata:
+>   generateName: input-parameters-
+> spec:
+>   entrypoint: main
+>   arguments:
+>     parameters:
+>       - name: message
+>         value: hello world
+>   templates:
+>     - name: main
+>       inputs:
+>         parameters:
+>           - name: message
+>       container:
+>         image: docker/whalesay
+>         command: [ cowsay ]
+>         args: [ "{{inputs.parameters.message}}" ]
+> ~~~
+> {: .language-yaml}
+{: .solution}
 
 This template declares that it has one input parameter named "message". See how the workflow itself has arguments?
 
@@ -243,7 +246,7 @@ STEP                       TEMPLATE  PODNAME                 DURATION  MESSAGE
 If a workflow has parameters, you can change the parameters using `-p` using the CLI:
 
 ```bash
-argo submit --watch input-parameters-workflow.yaml -p message='Welcome to Argo!'
+argo submit --watch input-parameters-workflow.yaml -p message='Welcome to Argo!' -n argo
 ```
 
 You should see:
@@ -256,7 +259,7 @@ STEP                       TEMPLATE  PODNAME                 DURATION  MESSAGE
 Let's check the output in the logs:
 
 ```bash
-argo logs @latest
+argo logs @latest -n argo
 ```
 
 You should see:
@@ -318,53 +321,57 @@ Get the complete workflow:
 wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/files/argo/parameters-workflow.yaml
 ```
 
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Workflow
-metadata:
-  generateName: parameters-
-spec:
-  entrypoint: main
-  templates:
-    - name: main
-      dag:
-        tasks:
-          - name: generate-parameter
-            template: whalesay
-          - name: consume-parameter
-            template: print-message
-            dependencies:
-              - generate-parameter
-            arguments:
-              parameters:
-                - name: message
-                  value: "{{tasks.generate-parameter.outputs.parameters.hello-param}}"
-
-    - name: whalesay
-      container:
-        image: docker/whalesay
-        command: [ sh, -c ]
-        args: [ "echo -n hello world > /tmp/hello_world.txt" ]
-      outputs:
-        parameters:
-          - name: hello-param
-            valueFrom:
-              path: /tmp/hello_world.txt
-
-    - name: print-message
-      inputs:
-        parameters:
-          - name: message
-      container:
-        image: docker/whalesay
-        command: [ cowsay ]
-        args: [ "{{inputs.parameters.message}}" ]
-```
+> ## Yaml File
+> ~~~
+> # parameters-workflow.yaml
+> apiVersion: argoproj.io/v1alpha1
+> kind: Workflow
+> metadata:
+>   generateName: parameters-
+> spec:
+>   entrypoint: main
+>   templates:
+>     - name: main
+>       dag:
+>         tasks:
+>           - name: generate-parameter
+>             template: whalesay
+>           - name: consume-parameter
+>             template: print-message
+>             dependencies:
+>               - generate-parameter
+>             arguments:
+>               parameters:
+>                 - name: message
+>                   value: "{{tasks.generate-parameter.outputs.parameters.hello-param}}"
+> 
+>     - name: whalesay
+>       container:
+>         image: docker/whalesay
+>         command: [ sh, -c ]
+>         args: [ "echo -n hello world > /tmp/hello_world.txt" ]
+>       outputs:
+>         parameters:
+>           - name: hello-param
+>             valueFrom:
+>               path: /tmp/hello_world.txt
+> 
+>     - name: print-message
+>       inputs:
+>         parameters:
+>           - name: message
+>       container:
+>         image: docker/whalesay
+>         command: [ cowsay ]
+>         args: [ "{{inputs.parameters.message}}" ]
+> ~~~
+> {: .language-yaml}
+{: .solution}
 
 Run it:
 
 ```bash
-argo submit --watch parameters-workflow.yaml
+argo submit --watch parameters-workflow.yaml -n argo
 ```
 
 You should see:
@@ -383,7 +390,7 @@ Learn more about parameters in the Argo Workflows documentation:
 
 ## Conclusion
 
-Congratulations! You have completed the Argo Workflows tutorial, where you learned how to define and execute workflows using Argo. You explored workflow definitions, dag templates, input and output parameters, and monitoring.
+Congratulations! You have completed the Argo Workflows tutorial, where you learned how to define and execute workflows using Argo. You explored workflow definitions, dag templates, input and output parameters, and monitoring. This will be important when processing files from the [CMS Open Data Portal](https://opendata.cern.ch/search?page=1&size=20&experiment=CMS) as similarily done with the [DAG](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/05-workflow/index.html#dag-template) and [Parameters](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/05-workflow/index.html#output-parameters) examples in this lesson.
 
 Argo Workflows offers a wide range of features and capabilities for managing complex workflows in Kubernetes. Continue to explore its documentation and experiment with more advanced workflow scenarios.
 
