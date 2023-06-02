@@ -115,7 +115,7 @@ argo list @latest -n argo
 
 You will be able to get an interactive glimpse of how argo workflow can be monitored and managing with Argo GUI, feel free to explore the various function this tool offers!
 
-<img src="../fig/argo-argo-hello-world-wf.png" alt="Argo Hello World Workflow" width="1050" />
+<img src="../fig/argo-hello-world.png" alt="Argo Hello World Workflow" width="1050" />
 
 You can get the logs with:
 ```bash
@@ -146,9 +146,6 @@ argo logs -n argo @latest
 > <img src="../fig/argo-hello-world-logs.png" alt="Argo Hello World Workflow Logs" width="1050" />
 > {: .centered}
 {: .solution}
-
-You can also check the logs with Argo GUI:
-<img src="../fig/argo-hello-world-logs.png" alt="Argo Hello World Workflow Logs" width="1050" />
               
 Please mind that it is important to delete your workflows once they have completed. If you do not do this, the pods associated with the workflow will remain scheduled in the cluster, which might lead to additional charges. You will learn how to automatically remove them later.
               
