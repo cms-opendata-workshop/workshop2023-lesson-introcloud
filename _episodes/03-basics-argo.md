@@ -65,6 +65,17 @@ This will serve the UI on [https://localhost:2746](https://localhost:2746). Due 
 
 <img src="../fig/argo-GUI.png" alt="Argo GUI" width="1050" />
 
+In the Argo GUI, you can perform various operations and actions related to managing and monitoring Argo Workflows. Here are some of the things you can do in the Argo GUI with Argo Workflows:
+- View Workflows
+- Submit Workflows
+- Monitor Workflow Status
+- Inspect Workflow Details
+- View Workflow Logs
+- Re-run Workflows
+- Cancel Workflows
+- Visualize Workflow DAG (Directed Acyclic Graph)
+- Manage Workflow Templates
+
 > Pay close attention to the URI. It uses `https` and not `http`. Navigating to `http://localhost:2746` result in server-side error that breaks the port-forwarding.
 {: .testimonial}
 
@@ -88,13 +99,10 @@ To test the setup, run a simple test workflow with:
 ```bash
 argo submit -n argo https://raw.githubusercontent.com/argoproj/argo/master/examples/hello-world.yaml
 ```
-To see the status of our workflows run:
+         
+This might take a while, to see the status of our workflows run:
 ```bash
 argo list @latest -n argo 
-```
-This might take a while, you can get the logs with:
-```bash
-argo logs -n argo @latest
 ```
 > ## Output
 > The output you provided indicates that there is a pod named "hello-world-mjgvb" that has a status of "Succeeded". The pod has been running for 2 minutes, and it took 32 seconds to complete its execution. The priority of the pod is 0, and there is no specific message associated with it.
@@ -104,27 +112,43 @@ argo logs -n argo @latest
 > ~~~
 > {: .language-output}
 {: .solution}
-              
-If argo was installed correctly you will have the following:
-              
-```output
-hello-world-mjgvb: time="2023-06-02T00:37:54.468Z" level=info msg="capturing logs" argo=true
-hello-world-mjgvb:  _____________
-hello-world-mjgvb: < hello world >
-hello-world-mjgvb:  -------------
-hello-world-mjgvb:     \
-hello-world-mjgvb:      \
-hello-world-mjgvb:       \
-hello-world-mjgvb:                     ##        .
-hello-world-mjgvb:               ## ## ##       ==
-hello-world-mjgvb:            ## ## ## ##      ===
-hello-world-mjgvb:        /""""""""""""""""___/ ===
-hello-world-mjgvb:   ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
-hello-world-mjgvb:        \______ o          __/
-hello-world-mjgvb:         \    \        __/
-hello-world-mjgvb:           \____\______/
-hello-world-mjgvb: time="2023-06-02T00:37:55.484Z" level=info msg="sub-process exited" argo=true error="<nil>"
+
+You will be able to get an interactive glimpse of how argo workflow can be monitored and managing with Argo GUI, feel free to explore the various function this tool offers!
+
+<img src="../fig/argo-argo-hello-world-wf.png" alt="Argo Hello World Workflow" width="1050" />
+
+You can get the logs with:
+```bash
+argo logs -n argo @latest
 ```
+> ## Output
+> If argo was installed correctly you will have the following:    
+> ~~~
+> hello-world-mjgvb: time="2023-06-02T00:37:54.468Z" level=info msg="capturing logs" argo=true
+> hello-world-mjgvb:  _____________
+> hello-world-mjgvb: < hello world >
+> hello-world-mjgvb:  -------------
+> hello-world-mjgvb:     \
+> hello-world-mjgvb:      \
+> hello-world-mjgvb:       \
+> hello-world-mjgvb:                     ##        .
+> hello-world-mjgvb:               ## ## ##       ==
+> hello-world-mjgvb:            ## ## ## ##      ===
+> hello-world-mjgvb:        /""""""""""""""""___/ ===
+> hello-world-mjgvb:   ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+> hello-world-mjgvb:        \______ o          __/
+> hello-world-mjgvb:         \    \        __/
+> hello-world-mjgvb:           \____\______/
+> hello-world-mjgvb: time="2023-06-02T00:37:55.484Z" level=info msg="sub-process exited" argo=true error="<nil>"
+> ~~~
+> {: .language-output}
+> You can also check the logs with Argo GUI:
+> <img src="../fig/argo-hello-world-logs.png" alt="Argo Hello World Workflow Logs" width="1050" />
+> {: .centered}
+{: .solution}
+
+You can also check the logs with Argo GUI:
+<img src="../fig/argo-hello-world-logs.png" alt="Argo Hello World Workflow Logs" width="1050" />
               
 Please mind that it is important to delete your workflows once they have completed. If you do not do this, the pods associated with the workflow will remain scheduled in the cluster, which might lead to additional charges. You will learn how to automatically remove them later.
               
