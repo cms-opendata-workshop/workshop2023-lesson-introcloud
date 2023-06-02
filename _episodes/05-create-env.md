@@ -183,7 +183,7 @@ kubectl get pods -A -n argo
 ```
 Now copy the files into your machine with:
 ```bash
-kubectl cp task-pv-pod:/mnt/data /tmp/poddata -n argo
+kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo
 ```
 and you will get the file created by the job in /tmp/poddata/test.txt.
 
