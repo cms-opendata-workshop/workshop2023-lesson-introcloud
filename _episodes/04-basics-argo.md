@@ -27,6 +27,10 @@ Argo is a collection of open-source tools that extend the functionality of Kuber
 
 In the context of Argo, there are three important tools that facilitate working with workflows, we will be using the Argo Workflow Engine.
 
+## Install the Argo Workflows CLI
+
+Next, Download the latest Argo CLI from the same [releases page](https://github.com/argoproj/argo-workflows/releases/latest). This is a requirement to interact with argo.
+
 ### Argo Workflow Engine
 The Argo Workflow Engine is designed to execute complex job orchestration, including both serial and parallel execution of stages, with each stage executed as a container.
 
@@ -41,21 +45,6 @@ Install it into your working environment with the following commands (all comman
 ```bash
 kubectl create ns argo
 kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start-postgres.yaml
-```
-
-### Patch argo-server authentication
-
-The argo-server (and thus the UI) defaults to client authentication, which requires clients to provide their Kubernetes bearer token in order to authenticate. For more information, refer to the [Argo Server Auth Mode documentation](argo-server-auth-mode.md). We will switch the authentication mode to `server` so that we can bypass the UI login for now:
-
-```bash
-kubectl patch deployment \
-  argo-server \
-  --namespace argo \
-  --type='json' \
-  -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/args", "value": [
-  "server",
-  "--auth-mode=server"
-]}]'
 ```
 
 You can now check that argo is available with:
@@ -74,13 +63,12 @@ kubectl -n argo port-forward deployment/argo-server 2746:2746
 
 This will serve the UI on [https://localhost:2746](https://localhost:2746). Due to the self-signed certificate, you will receive a TLS error which you will need to manually approve.
 
+#(Image)
+
 > Pay close attention to the URI. It uses `https` and not `http`. Navigating to `http://localhost:2746` result in server-side error that breaks the port-forwarding.
 {:testimonial}
 
-## Install the Argo Workflows CLI
 
-Next, Download the latest Argo CLI from the same [releases page](https://github.com/argoproj/argo-workflows/releases/latest).
-         
 ### Run a simple test workflow
 Make sure that all argo pods are running before submitting the test workflow:
 ```bash
@@ -100,30 +88,42 @@ To test the setup, run a simple test workflow with:
 ```bash
 argo submit -n argo https://raw.githubusercontent.com/argoproj/argo/master/examples/hello-world.yaml
 ```
+To see the status of our workflows run:
+```bash
+argo list @latest -n argo 
+```
 This might take a while, you can get the logs with:
 ```bash
 argo logs -n argo @latest
 ```
+> ## Output
+> The output you provided indicates that there is a pod named "hello-world-mjgvb" that has a status of "Succeeded". The pod has been running for 2 minutes, and it took 32 seconds to complete its execution. The priority of the pod is 0, and there is no specific message associated with it.
+> ~~~
+> NAME                STATUS      AGE   DURATION   PRIORITY   MESSAGE
+> hello-world-mjgvb   Succeeded   2m    32s        0
+> ~~~
+> {. :language-output}
+{: .solution}
               
 If argo was installed correctly you will have the following:
               
 ```output
-hello-world-j8dq9: time="2023-05-28T03:34:28.279Z" level=info msg="capturing logs" argo=true
-hello-world-j8dq9:  _____________
-hello-world-j8dq9: < hello world >
-hello-world-j8dq9:  -------------
-hello-world-j8dq9:     \
-hello-world-j8dq9:      \
-hello-world-j8dq9:       \
-hello-world-j8dq9:                     ##        .
-hello-world-j8dq9:               ## ## ##       ==
-hello-world-j8dq9:            ## ## ## ##      ===
-hello-world-j8dq9:        /""""""""""""""""___/ ===
-hello-world-j8dq9:   ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
-hello-world-j8dq9:        \______ o          __/
-hello-world-j8dq9:         \    \        __/
-hello-world-j8dq9:           \____\______/
-hello-world-j8dq9: time="2023-05-28T03:34:29.285Z" level=info msg="sub-process exited" argo=true error="<nil>"
+hello-world-mjgvb: time="2023-06-02T00:37:54.468Z" level=info msg="capturing logs" argo=true
+hello-world-mjgvb:  _____________
+hello-world-mjgvb: < hello world >
+hello-world-mjgvb:  -------------
+hello-world-mjgvb:     \
+hello-world-mjgvb:      \
+hello-world-mjgvb:       \
+hello-world-mjgvb:                     ##        .
+hello-world-mjgvb:               ## ## ##       ==
+hello-world-mjgvb:            ## ## ## ##      ===
+hello-world-mjgvb:        /""""""""""""""""___/ ===
+hello-world-mjgvb:   ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+hello-world-mjgvb:        \______ o          __/
+hello-world-mjgvb:         \    \        __/
+hello-world-mjgvb:           \____\______/
+hello-world-mjgvb: time="2023-06-02T00:37:55.484Z" level=info msg="sub-process exited" argo=true error="<nil>"
 ```
               
 Please mind that it is important to delete your workflows once they have completed. If you do not do this, the pods associated with the workflow will remain scheduled in the cluster, which might lead to additional charges. You will learn how to automatically remove them later.
