@@ -23,8 +23,7 @@ argo delete -n argo @latest
 ```
 
 ## Cleaning resources
-
-Deleting the argo namespace will delete all the resources created in this pre-exercise:
+Do not forget to _download/delete_ any files created in your `/tmp/poddata/` local directory. In respect to K8s, deleting the argo namespace will delete all the resources created in this pre-exercise:
 
 ```bash
 kubectl delete ns argo
@@ -39,9 +38,4 @@ kubectl delete ns argo
 > ```
 {: .testimonial}
 
-<br/>
 
-> Do not forget to _download/delete_ any files created in your `/tmp/poddata/` local directory.
-{: .testimonial}
-
-Perfect! You’re ready to [start over](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/03-basics-kubectl/index.html).
