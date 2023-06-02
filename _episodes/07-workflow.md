@@ -179,7 +179,7 @@ Open the Argo Server tab and navigate to the workflow, you should see two contai
 > >         args: [ "hello world" ]
 > > ~~~
 > > {: .language-yaml}
-> > And the expected output is:
+> > The expected output is:
 > > ~~~
 > > STEP          TEMPLATE  PODNAME                        DURATION  MESSAGE
 > > ✔ dag-hl6lc  main                                                 
@@ -188,6 +188,7 @@ Open the Argo Server tab and navigate to the workflow, you should see two contai
 > > └─✔ c        whalesay  dag-hl6lc-whalesay-1339698382  9s       
 > > ~~~
 > > {: .language-output}   
+> > And the workflow you should see in Argo GUI is:
 > > ![GKE1](../fig/Load.png)
 > > {: .centered}
 > {: .solution}
