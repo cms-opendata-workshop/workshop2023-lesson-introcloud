@@ -29,19 +29,22 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 
 The container template will have the following content:
 
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Workflow
-metadata:
-  name: my-workflow
-spec:
-  entrypoint: my-task
-  templates:
-    - name: my-task
-      container:
-        image: my-image
-        command: [echo, "Hello, Argo!"]
-```
+> YAML File
+> ~~~
+> apiVersion: argoproj.io/v1alpha1
+> kind: Workflow
+> metadata:
+>   name: my-workflow
+> spec:
+>   entrypoint: my-task
+>   templates:
+>     - name: my-task
+>       container:
+>         image: my-image
+>         command: [echo, "Hello, Argo!"]
+> ~~~
+> {: .language-yaml}
+{: .solution}
         
 Let's run the workflow:
 ```
@@ -76,7 +79,6 @@ Open the Argo Workflows UI. Then navigate to the workflow, you should see a sing
 > >       args: ["howdy world"]
 > > ~~~
 > > {: .language-yaml}
-> >
 > {: .solution}
 {: .challenge}
 
@@ -90,29 +92,32 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 
 That has the content:
 
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Workflow
-metadata:
-  generateName: dag-
-spec:
-  entrypoint: main
-  templates:
-    - name: main
-      dag:
-        tasks:
-          - name: a
-            template: whalesay
-          - name: b
-            template: whalesay
-            dependencies:
-              - a
-    - name: whalesay
-      container:
-        image: docker/whalesay
-        command: [ cowsay ]
-        args: [ "hello world" ]
-```
+> YAML File
+> ~~~
+> apiVersion: argoproj.io/v1alpha1
+> kind: Workflow
+> metadata:
+>   generateName: dag-
+> spec:
+>   entrypoint: main
+>   templates:
+>     - name: main
+>       dag:
+>         tasks:
+>           - name: a
+>             template: whalesay
+>           - name: b
+>             template: whalesay
+>             dependencies:
+>               - a
+>     - name: whalesay
+>       container:
+>         image: docker/whalesay
+>         command: [ cowsay ]
+>         args: [ "hello world" ]
+> ~~~
+> {: .language-yaml}
+{: .solution}
 
 In this example, we have two templates:
 
@@ -163,10 +168,10 @@ Open the Argo Server tab and navigate to the workflow, you should see two contai
 > >             dependencies:
 > >               - a
 > >           - name: c
-> > 	        template: whalesay
-> > 	        dependencies:
-> > 			  - a
-> > 			  - b
+> > 	          template: whalesay
+> > 	          dependencies:
+> >               - a
+> > 			        - b
 > >     - name: whalesay
 > >       container:
 > >         image: docker/whalesay
@@ -174,7 +179,15 @@ Open the Argo Server tab and navigate to the workflow, you should see two contai
 > >         args: [ "hello world" ]
 > > ~~~
 > > {: .language-yaml}
-> >
+> > And the expected output is:
+> > ~~~
+> > STEP          TEMPLATE  PODNAME                        DURATION  MESSAGE
+> > ✔ dag-hl6lc  main                                                 
+> > ├─✔ a        whalesay  dag-hl6lc-whalesay-1306143144  10s         
+> > ├─✔ b        whalesay  dag-hl6lc-whalesay-1356476001  10s         
+> > └─✔ c        whalesay  dag-hl6lc-whalesay-1339698382  9s       
+> > ~~~
+> > {: .language-output}   
 > {: .solution}
 {: .challenge}
 
