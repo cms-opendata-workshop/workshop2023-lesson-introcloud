@@ -29,6 +29,7 @@ Deleting the argo namespace will delete all the resources created in this pre-ex
 ```bash
 kubectl delete ns argo
 ```
+<br/>
 
 > ## Minikube - Stop your cluster
 > 
@@ -36,6 +37,10 @@ kubectl delete ns argo
 > ```bash
 > minikube stop
 > ```
+{: .testimonial}
+<br/>
+
+> Do not forget to _download/delete_ any files created in your `/tmp/poddata/` local directory.
 {: .testimonial}
 
 Perfect! You’re ready to [start over](https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/03-basics-kubectl/index.html).
