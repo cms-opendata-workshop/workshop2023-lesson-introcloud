@@ -39,7 +39,7 @@ Where:
 
 > ## Minikube - Start your cluster
 > 
-> From a terminal with administrator access (but not logged in as root), run:
+> Docker desktop needs to run in order to Minikube to start. From a terminal with administrator access (but not logged in as root), run:
 > ```bash
 > minikube start
 > ```
