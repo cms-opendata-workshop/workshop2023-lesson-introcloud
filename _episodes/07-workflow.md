@@ -45,8 +45,14 @@ spec:
         
 Let's run the workflow:
 ```
-argo submit --watch container-workflow.yaml
+argo submit container-workflow.yaml -n argo
 ```
+> You can add the `--watch` flag to supervise the creation of the workflow in real time as so:
+> ~~~
+> argo submit --watch container-workflow.yaml -n argo
+> ~~~
+> {: .language-bash}
+{: .testimonial}
 
 Open the Argo Workflows UI. Then navigate to the workflow, you should see a single container running.
 
