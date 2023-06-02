@@ -33,7 +33,7 @@ kubectl delete ns argo
 
 > ## Minikube - Stop your cluster
 > 
-> From a terminal with administrator access (but not logged in as root), run:
+> Before closing Docker Desktop, from a terminal with administrator access (but not logged in as root), run:
 > ```bash
 > minikube stop
 > ```
