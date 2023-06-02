@@ -117,6 +117,10 @@ You will be able to get an interactive glimpse of how argo workflow can be monit
 
 <img src="../fig/argo-hello-world.png" alt="Argo Hello World Workflow" width="1050" />
 
+Within your workflow, you can select your pod (in this example, it's called `hello-world-miavo`) to get a quick summary of the workflow details. 
+
+<img src="../fig/argo-hello-world-wf.png" alt="Argo Hello World Workflow" width="1050" />
+
 You can get the logs with:
 ```bash
 argo logs -n argo @latest
