@@ -61,12 +61,12 @@ To open a port-forward so you can access the UI, open a new shell and run:
 kubectl -n argo port-forward deployment/argo-server 2746:2746
 ```
 
-This will serve the UI on [https://localhost:2746](https://localhost:2746). Due to the self-signed certificate, you will receive a TLS error which you will need to manually approve.
+This will serve the UI on [https://localhost:2746](https://localhost:2746). Due to the self-signed certificate, you will receive a TLS error which you will need to manually approve. The Argo interface has the following similiarity:
 
-<img src="../fig/argo-GUI.png" alt="Argo GUI" width="400" />
+<img src="../fig/argo-GUI.png" alt="Argo GUI" width="1050" />
 
 > Pay close attention to the URI. It uses `https` and not `http`. Navigating to `http://localhost:2746` result in server-side error that breaks the port-forwarding.
-{:testimonial}
+{: .testimonial}
 
 
 ### Run a simple test workflow
