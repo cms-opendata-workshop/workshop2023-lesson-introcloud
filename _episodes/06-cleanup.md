@@ -38,6 +38,7 @@ kubectl delete ns argo
 > minikube stop
 > ```
 {: .testimonial}
+
 <br/>
 
 > Do not forget to _download/delete_ any files created in your `/tmp/poddata/` local directory.
