@@ -29,7 +29,7 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 
 The container template will have the following content:
 
-> YAML File
+> ## YAML File
 > ~~~
 > apiVersion: argoproj.io/v1alpha1
 > kind: Workflow
@@ -92,7 +92,7 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 
 That has the content:
 
-> YAML File
+> ## YAML File
 > ~~~
 > apiVersion: argoproj.io/v1alpha1
 > kind: Workflow
