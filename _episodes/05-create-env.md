@@ -45,7 +45,7 @@ spec:
 ```
 Deploy:
 ```bash
-kubectl apply -f pv.yaml -n argo
+kubectl apply -f pv.yaml
 ```
 Check:
 ```bash
@@ -113,10 +113,16 @@ spec:
 Submit and check this workflow with:
 
 ```bash
-argo submit -n argo argo-wf-volume.yaml
+argo submit argo-wf-volume.yaml -n argo
+```
+Wait till the pod `test-hostpath-XXXXX` is created, you can check with:
+```bash
+kubectl get pods -A -n argo
+```
+List all the workflows with:
+```bash
 argo list -n argo
 ```
-
 Take the name of the workflow from the output (replace XXXXX in the following command) and check the logs:
 
 ```bash
@@ -170,6 +176,13 @@ spec:
 Create the storage pod and copy the files from there with:
 ```bash
 kubectl apply -f pv-pod.yaml -n argo
+```
+Wait till the pod `task-pv-pod` is created, you can check with:
+```bash
+kubectl get pods -A -n argo
+```
+Now copy the files into your machine with:
+```bash
 kubectl cp task-pv-pod:/mnt/data /tmp/poddata -n argo
 ```
 and you will get the file created by the job in /tmp/poddata/test.txt.
