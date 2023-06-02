@@ -129,7 +129,7 @@ The DAG has two tasks: "a" and "b". Both run the "whalesay" template, but as "b"
 Let's run the workflow:
 
 ```bash
-argo submit --watch dag-workflow.yaml
+argo submit --watch dag-workflow.yaml -n argo
 ```
 
 You should see something like:
@@ -188,6 +188,8 @@ Open the Argo Server tab and navigate to the workflow, you should see two contai
 > > └─✔ c        whalesay  dag-hl6lc-whalesay-1339698382  9s       
 > > ~~~
 > > {: .language-output}   
+> > ![GKE1](../fig/Load.png)
+> > {: .centered}
 > {: .solution}
 {: .challenge}
 
@@ -227,7 +229,7 @@ This template declares that it has one input parameter named "message". See how 
 Run it:
 
 ```bash
-argo submit --watch input-parameters-workflow.yaml
+argo submit --watch input-parameters-workflow.yaml -n argo
 ```
 
 You should see:
