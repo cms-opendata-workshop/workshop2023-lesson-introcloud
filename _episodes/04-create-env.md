@@ -185,7 +185,9 @@ Now copy the files into your machine with:
 ```bash
 kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo
 ```
-and you will get the file created by the job in /tmp/poddata/test.txt.
+and you will get the file created by the job in /tmp/poddata/test1.txt.
+
+<img src="../fig/local-files.png" alt="File directory" width="1050" />
 
 > Every time you want the files to get copied from your the pv-pod to your local computer you must run `kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo`.
 {: .testimonial}
