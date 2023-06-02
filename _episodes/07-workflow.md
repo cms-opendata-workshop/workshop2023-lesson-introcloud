@@ -168,10 +168,10 @@ Open the Argo Server tab and navigate to the workflow, you should see two contai
 > >             dependencies:
 > >               - a
 > >           - name: c
-> > 	          template: whalesay
-> > 	          dependencies:
+> >             template: whalesay
+> >             dependencies:
 > >               - a
-> > 			        - b
+> >               - b
 > >     - name: whalesay
 > >       container:
 > >         image: docker/whalesay
