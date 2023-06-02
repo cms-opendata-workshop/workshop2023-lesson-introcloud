@@ -188,4 +188,4 @@ kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo
 and you will get the file created by the job in /tmp/poddata/test.txt.
 
 > Every time you want the files to get copied from your the pv-pod to your local computer you must run `kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo`.
-{. :testimonial}
+{: .testimonial}
