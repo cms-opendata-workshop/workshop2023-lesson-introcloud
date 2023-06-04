@@ -27,7 +27,7 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 
 It has the following content, you can alter the storage capacity if you'd like to whatever value.
 
-> # YAML File
+> ## YAML File
 > ~~~
 > # pv.yaml
 > apiVersion: v1
@@ -62,7 +62,7 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 ```
 It has the following content, you can alter the storage request if you'd like, but it mas less or equal than the storage capacity defined in our persistent volume (previous step).
 
-> # YAML File
+> ## YAML File
 > ~~~
 > # pvc.yaml
 > apiVersion: v1
@@ -95,7 +95,7 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 
 It has the following content:
 
-> # YAML File
+> ## YAML File
 > ~~~
 > # argo-wf-volume.yaml
 > apiVersion: argoproj.io/v1alpha1
@@ -160,7 +160,7 @@ wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/file
 
 It has the following content:
 
-> # YAML File
+> ## YAML File
 > ~~~
 > # pv-pod.yaml
 > apiVersion: v1
