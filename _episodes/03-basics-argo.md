@@ -76,7 +76,7 @@ In the Argo GUI, you can perform various operations and actions related to manag
 - Visualize Workflow DAG (Directed Acyclic Graph)
 - Manage Workflow Templates
 
-> Pay close attention to the URI. It uses `https` and not `http`. Navigating to `http://localhost:2746` result in server-side error that breaks the port-forwarding.
+> Pay close attention to the URL. It uses `https` and not `http`. Navigating to `http://localhost:2746` result in server-side error that breaks the port-forwarding.
 {: .testimonial}
 
 
@@ -117,7 +117,7 @@ You will be able to get an interactive glimpse of how argo workflow can be monit
 
 <img src="../fig/argo-hello-world.png" alt="Argo Hello World Workflow" width="1050" />
 
-Within your workflow, you can select your pod (in this example, it's called `hello-world-miavo`) to get a quick summary of the workflow details. 
+Within your workflow, you can select your pod (in this example, it's called `hello-world-mjgvb`) to get a quick summary of the workflow details. 
 
 <img src="../fig/argo-hello-world-wf.png" alt="Argo Hello World Workflow" width="1050" />
 
