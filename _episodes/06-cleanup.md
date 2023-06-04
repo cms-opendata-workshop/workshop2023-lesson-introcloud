@@ -23,12 +23,13 @@ argo delete -n argo @latest
 ```
 
 ## Cleaning resources
-Do not forget to _download/delete_ any files created in your `/tmp/poddata/` local directory. In respect to K8s, deleting the argo namespace will delete all the resources created in this pre-exercise:
+In respect to K8s, deleting the argo namespace will delete all the resources created in this pre-exercise:
 
 ```bash
 kubectl delete ns argo
 ```
-<br/>
+> Do not forget to _download/delete_ any files created in your `/tmp/poddata/` local directory. 
+{: .testimonial}
 
 > ## Minikube - Stop your cluster
 > 
