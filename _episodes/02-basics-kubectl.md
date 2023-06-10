@@ -46,6 +46,35 @@ Where:
 > If [minikube](https://minikube.sigs.k8s.io/docs/start/) fails to start, see the [drivers page](https://minikube.sigs.k8s.io/docs/drivers/) for help setting up a compatible container or virtual-machine manager.
 {: .testimonial}
 
+<div id="kubernetes-run">
+  <div>
+        <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a data-os="GKE" href="#shell-gke" aria-controls="GKE" role="tab" data-toggle="tab">GKE</a></li>
+        <li role="presentation"><a data-os="minikube" href="#shell-minikube" aria-controls="Minikube" role="tab" data-toggle="tab">Minikube</a></li>
+        </ul>
+
+        <div class="tab-content">
+
+            <article role="tabpanel" class="tab-pane active" id="shell-gke">
+              
+              <p>While jobs can also be run manually, a workflow engine makes defining and submitting jobs easier. In this tutorial, we use [argo](https://argoproj.github.io/argo/quick-start/). Install it into your working environment with the following commands (all commands to be entered into the cloud shell):</p>
+              
+              <blockquote class="testimonial">
+  <p>In case you leave your computer, you might have to reconnect to the CloudShell again, and also on a different computer. If the <code class="language-plaintext highlighter-rouge">argo</code> command is not found, run the command above again starting from the <code class="language-plaintext highlighter-rouge">curl</code> command.</p>
+</blockquote>
+              
+            </article><!-- gke  -->
+
+            <article role="tabpanel" class="tab-pane" id="shell-minikube">
+              
+                            <p>While jobs can also be run manually, a workflow engine makes defining and submitting jobs easier. In this tutorial, we use [argo](https://argoproj.github.io/argo/quick-start/). Install it into your working environment with the following commands (all commands to be entered into the cloud shell):</p>
+              
+                            </article><!-- Minikube  -->
+        </div> <!-- tab-contents  -->
+    </div><!-- nav-tabs  -->
+</div><!-- kubernetes-run  -->
+
+
 
 ### Imperative Approach
 In the imperative approach, you specify the exact sequence of commands or actions to be performed to create or modify Kubernetes resources. You interact with the Kubernetes API by issuing explicit instructions.
