@@ -49,27 +49,38 @@ Where:
 <div id="kubernetes-run">
   <div>
         <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a data-os="GKE" href="#shell-gke" aria-controls="GKE" role="tab" data-toggle="tab">GKE</a></li>
-        <li role="presentation"><a data-os="minikube" href="#shell-minikube" aria-controls="Minikube" role="tab" data-toggle="tab">Minikube</a></li>
+        <li role="presentation" class="active"><a data-os="Minikube" href="#shell-minikube" aria-controls="Minikube" role="tab" data-toggle="tab">Minikube</a></li>
+        <li role="presentation"><a data-os="Docker" href="#shell-docker" aria-controls="Docker" role="tab" data-toggle="tab">Docker Desktop</a></li>
         </ul>
-
         <div class="tab-content">
-
-            <article role="tabpanel" class="tab-pane active" id="shell-gke">
+            <article role="tabpanel" class="tab-pane active" id="shell-minikube">
               
-              <p>While jobs can also be run manually, a workflow engine makes defining and submitting jobs easier. In this tutorial, we use [argo](https://argoproj.github.io/argo/quick-start/). Install it into your working environment with the following commands (all commands to be entered into the cloud shell):</p>
+<p>Docker desktop needs to run in order to Minikube to start. From a terminal with administrator access (but not logged in as root), run:</p>
               
               <blockquote class="testimonial">
-  <p>In case you leave your computer, you might have to reconnect to the CloudShell again, and also on a different computer. If the <code class="language-plaintext highlighter-rouge">argo</code> command is not found, run the command above again starting from the <code class="language-plaintext highlighter-rouge">curl</code> command.</p>
+  <p>If [minikube](https://minikube.sigs.k8s.io/docs/start/) fails to start, see the [drivers page](https://minikube.sigs.k8s.io/docs/drivers/) for help setting up a compatible container or virtual-machine manager.</p>
 </blockquote>
               
-            </article><!-- gke  -->
+            </article><!-- Minikube  -->
 
-            <article role="tabpanel" class="tab-pane" id="shell-minikube">
+            <article role="tabpanel" class="tab-pane" id="shell-docker">
               
-                            <p>While jobs can also be run manually, a workflow engine makes defining and submitting jobs easier. In this tutorial, we use [argo](https://argoproj.github.io/argo/quick-start/). Install it into your working environment with the following commands (all commands to be entered into the cloud shell):</p>
+ To activate Docker Desktop Kubernetes, follow these steps:
+<ol>
+  <li>Install Docker Desktop: If you haven't already, download and install Docker Desktop for your operating system from the official Docker website. Ensure that you have administrative privileges to install software on your machine.</li>
+  <li>Enable Kubernetes: Once Docker Desktop is installed, launch the application. Depending on your operating system, you may find the Docker Desktop icon in your system tray or application launcher. Open the Docker Desktop settings.</li>
+  <li>Go to Kubernetes Settings: In the Docker Desktop settings, navigate to the "Kubernetes" tab. Here, you'll find options related to Kubernetes configuration.</li>
+  <li>Enable Kubernetes: Enable the Kubernetes checkbox to activate Kubernetes support in Docker Desktop. This will start the process of setting up and enabling Kubernetes on your local machine.</li>
+  <li>Wait for Setup: Docker Desktop will initiate the setup process for Kubernetes, which may take a few moments. It will automatically download the required components and set up the Kubernetes cluster on your local machine.</li>
+  <li>Verify Kubernetes Status: Once the setup is complete, you can verify the status of Kubernetes by checking the Docker Desktop interface. The status indicator will change to "Running" or "Enabled" to indicate that Kubernetes is active.</li>
+  <li>Access Kubernetes Cluster: Docker Desktop automatically configures the <code>kubectl</code> command-line tool to interact with the local Kubernetes cluster. To access the Kubernetes cluster, open a terminal or command prompt and run the following command to verify that <code>kubectl</code> is correctly configured and connected to the local cluster:</li>
+</ol>
+<pre><code>kubectl version
+</code></pre>
+<p>Congratulations! You have successfully activated Docker Desktop Kubernetes. You can now use Kubernetes to deploy and manage containerized applications on your local machine. Remember to familiarize yourself with Kubernetes concepts and commands to make the most of its capabilities.</p>
               
-                            </article><!-- Minikube  -->
+              
+                            </article><!-- Docker  -->
         </div> <!-- tab-contents  -->
     </div><!-- nav-tabs  -->
 </div><!-- kubernetes-run  -->
