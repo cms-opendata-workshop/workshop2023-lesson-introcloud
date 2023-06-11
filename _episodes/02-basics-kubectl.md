@@ -37,6 +37,11 @@ Where:
 > Also, check out the kubectl [cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 {: .testimonial}
 
+> ## Windows Users - Reminder
+>
+> To enable Kubernetes on WSL2, you have two options: activating Kubernetes in Docker Desktop or installing Minikube following the Linux option on WSL2 Ubuntu. It’s important to note that the Windows instructions for the Minikube installation guide users to PowerShell, but running the CMSSW container there will cause issues. Therefore, it is necessary to execute those commands within the Ubuntu shell.
+{: .testimonial}
+
 <div id="kubernetes-run">
   <div>
         <ul class="nav nav-tabs" role="tablist">
