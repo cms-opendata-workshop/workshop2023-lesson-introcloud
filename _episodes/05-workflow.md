@@ -82,6 +82,10 @@ Open the Argo Workflows UI. Then navigate to the workflow, you should see a sing
 > {: .solution}
 {: .challenge}
 
+> Learn more about parameters in the Argo Workflows documentation:
+> - [Workflow concepts](https://argoproj.github.io/argo-workflows/workflow-concepts/)
+{: .testimonial}
+
 ## DAG Template
 
 A **DAG template** is a common type of _orchestration_template. Let's look at a complete example:
@@ -194,6 +198,11 @@ Open the Argo Server tab and navigate to the workflow, you should see two contai
 > {: .solution}
 {: .challenge}
 
+> Learn more about parameters in the Argo Workflows documentation:
+> - [Workflow concepts - DAG](https://argoproj.github.io/argo-workflows/workflow-concepts/#dag)
+> - [DAG walk-through](https://argoproj.github.io/argo-workflows/walk-through/dag/)
+{: .testimonial}
+
 ## Input Parameters
 
 Let's have a look at an example:
@@ -280,6 +289,12 @@ You should see:
         \    \        __/             
           \____\______/   
 ```
+
+> Learn more about parameters in the Argo Workflows documentation:
+> - [Parameters overview](https://argoproj.github.io/argo-workflows/walk-through/parameters/)
+> - [Workflow input parameters](https://argoproj.github.io/argo-workflows/workflow-inputs/).
+> - [Input walk-through](https://argoproj.github.io/argo-workflows/walk-through/parameters/#parameters)
+{: .testimonial}
 
 ## Output Parameters
 
@@ -384,8 +399,7 @@ STEP                     TEMPLATE       PODNAME                      DURATION  M
 ```
 
 > Learn more about parameters in the Argo Workflows documentation:
-> - [Parameters overview](https://argoproj.github.io/argo-workflows/walk-through/parameters/)
-> - [Workflow input parameters](https://argoproj.github.io/argo-workflows/workflow-inputs/).
+> - [Workflow output parameters](https://argoproj.github.io/argo-workflows/walk-through/output-parameters/).
 {: .testimonial}
 
 ## Conclusion
