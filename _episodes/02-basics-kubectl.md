@@ -37,15 +37,6 @@ Where:
 > Also, check out the kubectl [cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 {: .testimonial}
 
-> ## Minikube - Start your cluster
-> 
-> Docker desktop needs to run in order to Minikube to start. From a terminal with administrator access (but not logged in as root), run:
-> ```bash
-> minikube start
-> ```
-> If [minikube](https://minikube.sigs.k8s.io/docs/start/) fails to start, see the [drivers page](https://minikube.sigs.k8s.io/docs/drivers/) for help setting up a compatible container or virtual-machine manager.
-{: .testimonial}
-
 <div id="kubernetes-run">
   <div>
         <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +47,8 @@ Where:
             <article role="tabpanel" class="tab-pane active" id="shell-minikube">
               
 <p>Docker desktop needs to run in order to Minikube to start. From a terminal with administrator access (but not logged in as root), run:</p>
-              
+<pre><code>minikube start
+</code></pre>
               <blockquote class="testimonial">
   <p>If [minikube](https://minikube.sigs.k8s.io/docs/start/) fails to start, see the [drivers page](https://minikube.sigs.k8s.io/docs/drivers/) for help setting up a compatible container or virtual-machine manager.</p>
 </blockquote>
