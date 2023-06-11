@@ -20,7 +20,7 @@ In the context of Kubernetes, imperative and declarative are two different parad
 <img src="https://ucarecdn.com/024d46aa-b898-4713-b3a7-2c095c94b00e/" width="400">
 
 ### Kubectl
-The [kubectl](https://kubernetes.io/docs/tasks/tools/) command-line tool is a powerful utility provided by Kubernetes that allows you to interact with and manage Kubernetes clusters. Use the following syntax to run kubectl commands from your terminal window:
+The kubectl command-line tool is a powerful utility provided by Kubernetes that allows you to interact with and manage Kubernetes clusters. If you have not yet installed kubectl click [here](https://kubernetes.io/docs/tasks/tools/). Use the following syntax to run kubectl commands from your terminal window:
 
 ```bash
 kubectl [command] [TYPE] [NAME] [flags]
@@ -48,8 +48,8 @@ Where:
               
 <p>Docker desktop needs to be running in the background in order for Minikube to start. From a terminal with administrator access (but not logged in as root), run:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minikube start</code></pre></div></div>
-</code></pre>
-If you have already installed <code>kubectl</code> and it is pointing to some other environment, such as minikube or a GKE cluster, ensure you change the context so that kubectl is pointing to minikube:
+
+If you have already installed <code>kubectl</code> and it is pointing to some other environment, such as docker-desktop or a GKE cluster, ensure you change the context so that kubectl is pointing to minikube:
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config use-context minikube</code></pre></div></div>
               <blockquote class="testimonial">
   <p>If <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">minikube</a> fails to start, see the <a href="https://minikube.sigs.k8s.io/docs/drivers/" target="_blank">drivers page</a> for help setting up a compatible container or virtual-machine manager.
