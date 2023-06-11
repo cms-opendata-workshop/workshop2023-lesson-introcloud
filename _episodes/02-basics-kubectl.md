@@ -46,31 +46,34 @@ Where:
         <div class="tab-content">
             <article role="tabpanel" class="tab-pane active" id="shell-minikube">
               
-<p>Docker desktop needs to run in order to Minikube to start. From a terminal with administrator access (but not logged in as root), run:</p>
-<pre><code>minikube start
+<p>Docker desktop needs to be running in the background in order for Minikube to start. From a terminal with administrator access (but not logged in as root), run:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minikube start</code></pre></div></div>
 </code></pre>
+If you have already installed <code>kubectl</code> and it is pointing to some other environment, such as minikube or a GKE cluster, ensure you change the context so that kubectl is pointing to minikube:
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config use-context minikube</code></pre></div></div>
               <blockquote class="testimonial">
-  <p>If [minikube](https://minikube.sigs.k8s.io/docs/start/) fails to start, see the [drivers page](https://minikube.sigs.k8s.io/docs/drivers/) for help setting up a compatible container or virtual-machine manager.</p>
+  <p>If <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">minikube</a> fails to start, see the <a href="https://minikube.sigs.k8s.io/docs/drivers/" target="_blank">drivers page</a> for help setting up a compatible container or virtual-machine manager.
+</p>
 </blockquote>
+<p>Congratulations! You have successfully activated Minikube. You can now use Kubernetes to deploy and manage containerized applications on your local machine. Remember to familiarize yourself with Kubernetes concepts and commands to make the most of its capabilities.</p>
               
             </article><!-- Minikube  -->
 
             <article role="tabpanel" class="tab-pane" id="shell-docker">
               
- To activate Docker Desktop Kubernetes, follow these steps:
+To enable Kubernetes in Docker Desktop, in support to the <a href="https://docs.docker.com/desktop/kubernetes/" target="_blank">documentation</a> follow these steps:
 <ol>
-  <li>Install Docker Desktop: If you haven't already, download and install Docker Desktop for your operating system from the official Docker website. Ensure that you have administrative privileges to install software on your machine.</li>
-  <li>Enable Kubernetes: Once Docker Desktop is installed, launch the application. Depending on your operating system, you may find the Docker Desktop icon in your system tray or application launcher. Open the Docker Desktop settings.</li>
-  <li>Go to Kubernetes Settings: In the Docker Desktop settings, navigate to the "Kubernetes" tab. Here, you'll find options related to Kubernetes configuration.</li>
-  <li>Enable Kubernetes: Enable the Kubernetes checkbox to activate Kubernetes support in Docker Desktop. This will start the process of setting up and enabling Kubernetes on your local machine.</li>
-  <li>Wait for Setup: Docker Desktop will initiate the setup process for Kubernetes, which may take a few moments. It will automatically download the required components and set up the Kubernetes cluster on your local machine.</li>
-  <li>Verify Kubernetes Status: Once the setup is complete, you can verify the status of Kubernetes by checking the Docker Desktop interface. The status indicator will change to "Running" or "Enabled" to indicate that Kubernetes is active.</li>
-  <li>Access Kubernetes Cluster: Docker Desktop automatically configures the <code>kubectl</code> command-line tool to interact with the local Kubernetes cluster. To access the Kubernetes cluster, open a terminal or command prompt and run the following command to verify that <code>kubectl</code> is correctly configured and connected to the local cluster:</li>
+  <li>From the Docker Dashboard, select the Settings.</li>
+  <li>Select Kubernetes from the left sidebar.</li>
+  <li>Next to Enable Kubernetes, select the checkbox.</li>
+  <li>Select Apply & Restart to save the settings and then click Install to confirm. This instantiates images required to run the Kubernetes server as containers, and installs the <code>/usr/local/bin/kubectl</code> command on your machine.</li>
 </ol>
-<pre><code>kubectl version
-</code></pre>
-<p>Congratulations! You have successfully activated Docker Desktop Kubernetes. You can now use Kubernetes to deploy and manage containerized applications on your local machine. Remember to familiarize yourself with Kubernetes concepts and commands to make the most of its capabilities.</p>
+If you have already installed <code>kubectl</code> and it is pointing to some other environment, such as minikube or a GKE cluster, ensure you change the context so that kubectl is pointing to docker-desktop:
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config use-context docker-desktop</code></pre></div></div>
               
+You can test the command by listing the available nodes:
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get nodes</code></pre></div></div>    
+<p>Congratulations! You have successfully activated Docker Desktop Kubernetes. You can now use Kubernetes to deploy and manage containerized applications on your local machine. Remember to familiarize yourself with Kubernetes concepts and commands to make the most of its capabilities.</p>
               
                             </article><!-- Docker  -->
         </div> <!-- tab-contents  -->
