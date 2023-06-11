@@ -18,7 +18,7 @@ keypoints:
 
 ## Kubernetes Cluster - Storage Volume
 
-When running applications or workflows, it is often necessary to allocate disk space to store the resulting data. Kubernetes provides various options for managing storage volumes, allowing you to efficiently store and access data within your cluster. Local storage volumes are tied to the Minikube host machine and are not accessible outside of it since they are meant for local development and testing purposes. By leveraging local storage volumes with Minikube, you can conveniently create and utilize storage resources within your local Kubernetes cluster, enabling data persistence and local development capabilities.
+With Minikube, you can utilize persistent volumes and persistent volume claims to enable data persistence and local development capabilities within your local Kubernetes cluster. By leveraging local storage volumes with Minikube, you can conveniently create and utilize storage resources within your local Kubernetes cluster, enabling data persistence and local development capabilities.
 
 Let's create a persistent volume, retrieve the persistent volume configuration file with:
 ```bash
@@ -56,7 +56,13 @@ Check:
 ```bash
 kubectl get pv
 ```
-Apps can claim persistent volumes through persistent volume claims (pvc). Let’s create a pvc, retrieve the pvc with:
+Expected output:
+```output
+NAME             CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
+task-pv-volume   5Gi        RWX            Retain           Available           manual                  11s
+```
+
+Apps can claim persistent volumes through persistent volume claims (pvc). Let’s create a pvc, retrieve the `pvc.yaml` file with:
 ```bash
 wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/files/minikube/pvc.yaml
 ```
@@ -88,6 +94,12 @@ Check:
 ```bash
 kubectl get pvc -n argo
 ```
+Expected output:
+```output
+NAME            STATUS   VOLUME           CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+task-pv-claim   Bound    task-pv-volume   5Gi        RWX            manual         10s
+```
+
 Now an argo workflow can claim and access this volume, retrieve the configuration file with:
 ```bash
 wget https://cms-opendata-workshop.github.io/workshop2023-lesson-introcloud/files/minikube/argo-wf-volume.yaml
@@ -203,9 +215,16 @@ Now copy the files into your machine with:
 kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo
 ```
 
-You will get the file created by the job in `/tmp/poddata/test1.txt`. Remember to _unhide_ your hidden files/folders, here you will find the file we created within out cluster.
+You will get the file created by the job in `/tmp/poddata/test1.txt`. Remember to _unhide_ your hidden files/folders when using directory GUI. In your terminal run:
 
-<img src="../fig/local-files.png" alt="File directory" width="760" />
+```bash
+cat /private/tmp/poddata/test1.txt
+```
+
+Expected output:
+```output
+This is the new ouput
+```
 
 > Every time you want the files to get copied from your the pv-pod to your local computer, you **must** run:
 > ~~~
