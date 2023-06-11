@@ -29,7 +29,13 @@ In the context of Argo, there are three important tools that facilitate working 
 
 ## Install the Argo Workflows CLI
 
-Next, Download the latest Argo CLI from the same [releases page](https://github.com/argoproj/argo-workflows/releases/latest). This is a requirement to interact with argo.
+Download the latest Argo CLI from the [releases page](https://github.com/argoproj/argo-workflows/releases/latest). This is a requirement to interact with argo.
+
+Verify the Argo installation with:
+              
+```bash
+argo version
+```    
 
 ### Argo Workflow Engine
 The Argo Workflow Engine is designed to execute complex job orchestration, including both serial and parallel execution of stages, with each stage executed as a container.
@@ -38,7 +44,7 @@ In the context of scientific analysis, such as physics analysis using datasets f
 
 ### Install argo as a workflow engine
 
-While jobs can be run manually, utilizing a workflow engine like Argo simplifies the process of defining and submitting jobs. In this tutorial, we will use the Argo Quick Start page to install and configure Argo in your working environment.
+While jobs can be run manually, utilizing a workflow engine like Argo simplifies the process of defining and submitting jobs. In this tutorial, we will use the [Argo Quick Start page](https://argoproj.github.io/argo-workflows/quick-start/) to install and configure Argo in your working environment.
 
 Install it into your working environment with the following commands (all commands to be entered into your local shell):
 
@@ -46,12 +52,11 @@ Install it into your working environment with the following commands (all comman
 kubectl create ns argo
 kubectl apply -n argo -f https://raw.githubusercontent.com/argoproj/argo-workflows/master/manifests/quick-start-postgres.yaml
 ```
+Check that everything has finished running before continuing with:
 
-You can now check that argo is available with:
-              
 ```bash
-argo version
-```    
+kubectl get all -n argo
+```
 
 ### Port-forward the UI
 
