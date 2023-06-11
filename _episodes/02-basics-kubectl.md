@@ -322,7 +322,7 @@ kubectl describe node
 {: .solution}
 
 ### Run your first deployment
-A Deployment is a higher-level resource that provides declarative updates and manages the deployment of Pods. It allows you to define the desired state of your application, including the number of replicas, container images, and resource requirements.
+A [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is a higher-level resource that provides declarative updates and manages the deployment of Pods. It allows you to define the desired state of your application, including the number of replicas, container images, and resource requirements.
 <br/>
 Download the file:
 ```bash
