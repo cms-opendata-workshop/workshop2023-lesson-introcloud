@@ -20,7 +20,7 @@ In the context of Kubernetes, imperative and declarative are two different parad
 <img src="https://ucarecdn.com/024d46aa-b898-4713-b3a7-2c095c94b00e/" width="400">
 
 ### Kubectl
-The kubectl command-line tool is a powerful utility provided by Kubernetes that allows you to interact with and manage Kubernetes clusters. If you have not yet installed kubectl click [here](https://kubernetes.io/docs/tasks/tools/). Use the following syntax to run kubectl commands from your terminal window:
+The kubectl command-line tool is a powerful utility provided by Kubernetes that allows you to interact with and manage Kubernetes clusters. Both [Minikube](https://minikube.sigs.k8s.io/docs/faq/#do-i-need-to-install-kubectl-locally) and [K8s on Docker Desktop](https://docs.docker.com/desktop/kubernetes/) comes with a built-in kubectl installation. Use the following syntax to run kubectl commands from your terminal window:
 
 ```bash
 kubectl [command] [TYPE] [NAME] [flags]
