@@ -218,7 +218,7 @@ kubectl cp task-pv-pod:/mnt/vol /tmp/poddata -n argo
 You will get the file created by the job in `/tmp/poddata/test1.txt`. Remember to _unhide_ your hidden files/folders when using directory GUI. In your terminal run:
 
 ```bash
-cat /private/tmp/poddata/test1.txt
+cat /tmp/poddata/test1.txt
 ```
 
 Expected output:
