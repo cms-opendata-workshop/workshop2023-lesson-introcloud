@@ -143,7 +143,7 @@ argo submit argo-wf-volume.yaml -n argo
 ```
 Wait till the pod `test-hostpath-XXXXX` is created, you can check with:
 ```bash
-kubectl get pods -A -n argo
+kubectl get pods -n argo
 ```
 List all the workflows with:
 ```bash
@@ -208,7 +208,7 @@ kubectl apply -f pv-pod.yaml -n argo
 ```
 Wait till the pod `task-pv-pod` is created, you can check with:
 ```bash
-kubectl get pods -A -n argo
+kubectl get pods -n argo
 ```
 Now copy the files into your machine with:
 ```bash
