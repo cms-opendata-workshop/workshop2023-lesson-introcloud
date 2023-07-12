@@ -15,7 +15,7 @@ To participate in this workshop, you will need a [GCP](https://cloud.google.com)
 {: .testimonial}
 
 ### 2. Minikube or K8s on Docker Desktop:
-For this Cloud Pre-exercise, you will need to create a Kubernetes cluster locally to run some tests. 
+For this Cloud Pre-exercise, you will need to create a Kubernetes cluster locally to run some tests. Choose one of the two:
 
 - **Minikube** is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node. Minikube is available for Linux, macOS, and Windows systems. Please click [here](https://minikube.sigs.k8s.io/docs/start/) to get started with the minikube installation. 
 - **K8s on Docker Desktop** refers to the feature of Docker Desktop that enables users to run and manage Kubernetes clusters on their local development machines. Please click [here](https://docs.docker.com/desktop/kubernetes/) to get started with the K8s on Docker Desktop installation.
